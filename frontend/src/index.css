@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Surface tokens ── */
+  --color-surface-900: var(--surface-900);
+  --color-surface-800: var(--surface-800);
+  --color-surface-700: var(--surface-700);
+  --color-surface-600: var(--surface-600);
+  --color-surface-500: var(--surface-500);
+  --color-surface-400: var(--surface-400);
+  --color-surface-300: var(--surface-300);
+
+  /* ── Text hierarchy ── */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+
+  /* ── Accent: Warm Saffron Orange ── */
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+
+  /* ── Borders ── */
+  --color-border-primary: var(--border-primary);
+  --color-border-secondary: var(--border-secondary);
+  --color-border-hover: var(--border-hover);
+  --color-border-accent: var(--border-accent);
+
+  /* ── Semantic: Status ── */
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+  --color-status-info: var(--status-info);
+}
+
+:root {
+  /* ── Sandal Cream & Orange (Light Mode) ── */
+  --surface-900: #f6f1e7; /* Soothing Sandalwood/Chandan cream wash */
+  --surface-800: #ffffff; /* Crisp ivory sandalwood card */
+  --surface-700: #eee6d6; /* Elevated toolbar / headers */
+  --surface-600: #e3d8c4; /* Nested surfaces / editor gutters */
+  --surface-500: #d8cbb2; /* Interactive surfaces */
+  --surface-400: #c9baa0;
+  --surface-300: #b8a68b;
+
+  --text-primary: #272018; /* Deep sandalwood timber */
+  --text-secondary: #584b3d; /* Warm sandalwood teak */
+  --text-tertiary: #847563; /* Sandalwood bark */
+  --text-muted: #a69785; /* Soft sandal dust */
+
+  --accent-50: #fff4ea; /* Pale warm saffron cream */
+  --accent-100: #ffe4ce;
+  --accent-200: #ea580c; /* Deep rich orange */
+  --accent-300: #f97316; /* Pure vibrant orange */
+  --accent-400: #fb923c; /* Glowing orange */
+  --accent-500: #fdba74;
+  --accent-600: #fed7aa;
+
+  --border-primary: #e6ddcb; /* Gentle sandalwood border */
+  --border-secondary: #dcd0bc;
+  --border-hover: #cbbba3;
+  --border-accent: rgba(234, 88, 12, 0.2);
+
+  --status-success: #15803d;
+  --status-warning: #b45309;
+  --status-error: #b91c1c;
+  --status-info: #ea580c;
+}
+
+html.dark {
+  /* ── Dark Sandalwood & Orange (Dark Mode) ── */
+  --surface-900: #141210; /* Deep sandalwood timber / charcoal */
+  --surface-800: #1c1916; /* Warm dark sandalwood card */
+  --surface-700: #24201b; /* Elevated container */
+  --surface-600: #2e2923; /* Inner inputs */
+  --surface-500: #3b352d;
+  --surface-400: #4a4238;
+  --surface-300: #5c5246;
+
+  --text-primary: #fbf5ea; /* Sandalwood cream / chandan ivory */
+  --text-secondary: #d6c8b4; /* Warm chandan sand */
+  --text-tertiary: #9c8e7b;
+  --text-muted: #6b6051;
+
+  --accent-50: #381a08;
+  --accent-100: #622a0a;
+  --accent-200: #ea580c;
+  --accent-300: #f97316;
+  --accent-400: #fb923c;
+  --accent-500: #fdba74;
+  --accent-600: #ffedd5;
+
+  --border-primary: #28231d;
+  --border-secondary: #352f27;
+  --border-hover: #484035;
+  --border-accent: rgba(234, 88, 12, 0.3);
+
+  --status-success: #22c55e;
+  --status-warning: #f59e0b;
+  --status-error: #ef4444;
+  --status-info: #fb923c;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border-primary);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--color-surface-900);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background-color: var(--color-accent-100);
+    color: var(--color-accent-200);
+  }
+
+  code, kbd, samp, pre {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-500);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-400);
+}
+
+/* Subtle micro-animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

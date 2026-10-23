@@ -47,3 +47,12 @@ Thumbs.db
 # Database & local data
 *.sqlite3
 database/data/
+
+# Frontend / Node
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
